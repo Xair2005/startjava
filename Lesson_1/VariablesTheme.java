@@ -1,7 +1,4 @@
 public class VariablesTheme {
-
-
-
 	public static void main(String[] args) {
 		 System.out.println("\n 1. Создание переменных и вывод их значений на консоль");
 
@@ -16,21 +13,21 @@ public class VariablesTheme {
 		
 		System.out.println("\nКол-во ядер: " + quantCore);
 		System.out.println("Кол-во опер.памяти: " + quantMemory);
-		System.out.println("Кол-во папок: " + quantFolders );
-		System.out.println("Кол-во файлов: " + quantFiles );
-		System.out.println("Тактовая чистота: " + quantGHz );
-		System.out.println("Свободно на диске(Kb): " + freeKbOnDisc );
-		System.out.println("Первый символ ОС: " + typeOS );
-		System.out.println("В рабочем состоянии? " + isWork );
+		System.out.println("Кол-во папок: " + quantFolders);
+		System.out.println("Кол-во файлов: " + quantFiles);
+		System.out.println("Тактовая чистота: " + quantGHz);
+		System.out.println("Свободно на диске(Kb): " + freeKbOnDisc);
+		System.out.println("Первый символ ОС: " + typeOS);
+		System.out.println("В рабочем состоянии? " + isWork);
 
 		 System.out.println("\n 2. Расчет стоимости товара со скидкой");
 
-		int productX = 100;
-		int productY = 200;
+		int priceGoodsX = 100;
+		int priceGoodsY = 200;
 		float discount = 0.11f;
 		
-		float discountPrice = (productX  + productY) * discount;
-		float totalPrice = productX  + productY  - discountPrice ;
+		float discountPrice = (priceGoodsX + priceGoodsY) * discount;
+		float totalPrice = priceGoodsX + priceGoodsY - discountPrice ;
 		
 		System.out.println("\nСумма скидки: " + discountPrice );
 		System.out.println("Сумма итого: " + totalPrice );
@@ -113,41 +110,40 @@ public class VariablesTheme {
 
 		int srcNum = 345;
 		
-		int dig1 = srcNum / 100;
-		int dig2 = (srcNum % 300) / 10;
-		int dig3 = srcNum % 340;
-		System.out.println("\n" + dig1 + " " + dig2 + " " + dig3);
+		int hundreds = srcNum / 100;
+		int tens = (srcNum % 100) / 10;
+		int units = srcNum % 10;
+		System.out.println("\n" + hundreds + " " + tens + " " + units);
 		
-		int sumDigits =  dig1 + dig2 + dig3;
+		int sumDigits = hundreds + tens + units;
 		System.out.println("Сумма цифр числа " + srcNum + " = " + sumDigits);
-		int prodDigits =  dig1 * dig2 * dig3;
+		int prodDigits =  hundreds * tens * units;
 		System.out.println("Произведение цифр числа " + srcNum + " = " + prodDigits);
 
 		 System.out.println("\n 8. Вывод на консоль ASCII-арт Дюка");
 
-		char s1 = '/';
-		char s2 = '\\';
-		char s3 = '(';
-		char s4 = ')';
-		char s5 = '_';
-		char s6 = ' ';
-		char symbSpace1 = ' ';
+		char fSlash = '/';
+		char bSlashDouble = '\\';
+		char oParenthesis = '(';
+		char cParenthesis = ')';
+		char underscope = '_';
+		char space = ' ';
 
-		System.out.println("\n" + symbSpace1 + symbSpace1 + symbSpace1 + symbSpace1 
-				    + s1 + s2 + symbSpace1 + symbSpace1 + symbSpace1 + symbSpace1);
-		System.out.println("" + symbSpace1 + symbSpace1 + symbSpace1 
-				    + s1 + symbSpace1 + symbSpace1 + s2 + symbSpace1 + symbSpace1 + symbSpace1);
-		System.out.println("" + symbSpace1 + symbSpace1 + s1 + s5 + s3 + symbSpace1 + s4 + s2 + symbSpace1 + symbSpace1);
-		System.out.println("" + symbSpace1 + s1 + symbSpace1 + symbSpace1 + symbSpace1 + symbSpace1 + symbSpace1 + symbSpace1 
-				    + s2 + symbSpace1);
-		System.out.println("" + s1 + s5 + s5 + s5 + s5 + s1 + s2 + s5 + s5 + s2 + "");	
+		System.out.println("\n" + space + space + space + space 
+				    + fSlash + bSlashDouble + space + space + space + space);
+		System.out.println("" + space + space + space 
+				    + fSlash + space + space + bSlashDouble + space + space + space);
+		System.out.println("" + space + space + fSlash + underscope + oParenthesis + space + cParenthesis + bSlashDouble + space + space);
+		System.out.println("" + space + fSlash + space + space + space + space + space + space 
+				    + bSlashDouble + space);
+		System.out.println("" + fSlash + underscope + underscope + underscope + underscope + fSlash + bSlashDouble + underscope + underscope + bSlashDouble + "");	
 
 		 System.out.println("\n 9. Отображение количества сотен, десятков и единиц числа");
 
 		srcNum = 123;
 		int digHund = srcNum / 100;
 		int digTens = (srcNum % 100 ) / 10;
-		int digOnes = (srcNum % 100 ) % 10;
+		int digOnes = srcNum % 10;
 		
 		System.out.println("\nЧисло " + srcNum + " содержит ");
 		System.out.println(digHund + " сотен ");
@@ -159,8 +155,8 @@ public class VariablesTheme {
 		int totalSec = 86399;		
 		int timeHH = totalSec / 3600;
 		int timeMM = totalSec % 3600 / 60;
-		int timeSS = (totalSec % 3600) % 60 ;
+		int timeSS = totalSec  % 60;
 
 		System.out.println("\nВремя = " + timeHH + ":" + timeMM + ":" + timeSS);
-};
-};
+	}
+}
