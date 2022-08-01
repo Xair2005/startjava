@@ -1,14 +1,14 @@
 public class IfElseStatementTheme {
-   public static void main(String[] args) {
-      System.out.println("\n 1. Перевод псевдокода на язык Java");
+    public static void main(String[] args) {
 
-      int age = 35;
-      boolean isMen = false;
-      double height = 1.70;
-      char firstChar = "Tom".charAt(0);
+    System.out.println("\n 1. Перевод псевдокода на язык Java");
 
+    int age = 35;
+    boolean isMen = false;
+    double height = 1.70;
+    char firstChar = "Tom".charAt(0);
 
-      if (age > 20) {
+    if (age > 20) {
         System.out.println("\nСтарше 20");
     } else {
         System.out.println("Младше 21");
@@ -169,7 +169,6 @@ public class IfElseStatementTheme {
     System.out.println("Средний бал по предметам: " + averageScore);
     System.out.println("Средний процент по предметам: " + averagePercent);
 
-
     System.out.println("\n 8. Расчет прибыли");
 
     double rentPrice = 5000;
@@ -189,7 +188,6 @@ public class IfElseStatementTheme {
     int toGiv10 = summRequest % 100 / 10;   //на выдачу купюр номинал 10
     int toGiv1 = summRequest %  10;         //на выдачу купюр номинал 1
 
-
     if (toGiv100 > billHundred) {
         toGiv100 = billHundred;
         toGiv10 = (summRequest - toGiv100 * 100) / 10;        
@@ -205,6 +203,5 @@ public class IfElseStatementTheme {
     System.out.println("Банкнота 100$: " + toGiv100 + "шт");
     System.out.println("Банкнота 10$: " + toGiv10 + "шт");
     System.out.println("Банкнота 1$: " + toGiv1 + "шт");
-
-}
+    }
 }
