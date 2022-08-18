@@ -82,7 +82,6 @@ public class IfElseStatementTheme {
         System.out.println("\n 5. Определение буквы, числа или символа по их коду");
 
         char someChar = '\u0040'; 
-
         System.out.println("\nСимвол: " + someChar);
 
         if (someChar >= 65 && someChar <= 90) {
@@ -94,7 +93,6 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Это не буква и не число");
         }
-
         System.out.println("\n 6. Определение суммы вклада и начисленных банком %");
 
         double depositSum = 300000;
@@ -108,7 +106,6 @@ public class IfElseStatementTheme {
         } else if (depositSum > 300000) {
             depositPercent = 10;
         }
-
         System.out.println("Процент начисления: " + depositPercent + "%");
         System.out.println("Итоговая сумма с процентами: " + (depositSum + depositSum * 1 / 100 * depositPercent));
 
@@ -154,7 +151,6 @@ public class IfElseStatementTheme {
             averageScore += 5;
             averagePercent += prgrmngPercent;
         } 
-
         System.out.println("Средний бал по предметам: " + averageScore / 2);
         System.out.println("Средний процент по предметам: " + averagePercent / 2);
 
