@@ -112,45 +112,40 @@ public class IfElseStatementTheme {
         System.out.println("\n 7. Определение оценки по предметам");
 
         int hystoryPercent = 59;
-        int prgrmngPercent = 91;
+        int programingPercent = 91;
         double averageScore = 0; 
         double averagePercent = 0; 
 
         if (hystoryPercent <= 60) {
             System.out.println("\n" + 2 + " История");
             averageScore += 2;
-            averagePercent += hystoryPercent;
         } else if (hystoryPercent > 60 && hystoryPercent <= 73) {
             System.out.println(3 + " История");
             averageScore += 3;
-            averagePercent += hystoryPercent;
         } else if (hystoryPercent > 73 && hystoryPercent <= 91) {
             System.out.println(4 + " История");
             averageScore += 4;
-            averagePercent += hystoryPercent;
         } else if (hystoryPercent > 91) {
             System.out.println(5 + " История");
             averageScore += 5;
-            averagePercent += hystoryPercent;
         } 
-
-        if (prgrmngPercent <= 60) {
+        
+        if (programingPercent <= 60) {
             System.out.println(2 + " Программирование");
             averageScore += 2;
-            averagePercent += prgrmngPercent;
-        } else if (prgrmngPercent > 60 && prgrmngPercent <= 73) {
+        } else if (programingPercent > 60 && programingPercent <= 73) {
             System.out.println(3 + " Программирование");
             averageScore += 3;
-            averagePercent += prgrmngPercent;
-        } else if (prgrmngPercent > 73 && prgrmngPercent <= 91) {
+        } else if (programingPercent > 73 && programingPercent <= 91) {
             System.out.println(4 + " Программирование");
             averageScore += 4;
-            averagePercent += prgrmngPercent;
-        } else if (prgrmngPercent > 91) {
+        } else if (programingPercent > 91) {
             System.out.println(5 + " Программирование");
             averageScore += 5;
-            averagePercent += prgrmngPercent;
         } 
+        averagePercent += hystoryPercent;
+        averagePercent += programingPercent;
+
         System.out.println("Средний бал по предметам: " + averageScore / 2);
         System.out.println("Средний процент по предметам: " + averagePercent / 2);
 
@@ -168,29 +163,29 @@ public class IfElseStatementTheme {
 
         System.out.println("\n 9. Подсчет количества банкнот");
 
-        int billHundred = 4;    // кол-во купюр в банкомате 100$
-        int billTens = 7;       // кол-во купюр в банкомате 10$
-        int billOnes = 1000;    // кол-во купюр в банкомате 1$
+        int cash100dollar = 4;    // кол-во купюр в банкомате 100$
+        int cash10dollar = 7;       // кол-во купюр в банкомате 10$
+        int cash1dollar = 1000;    // кол-во купюр в банкомате 1$
         int summRequest = 567;  // запрошенная сумма
 
-        int toGiv100 = summRequest / 100;       //на выдачу купюр номинал 100
-        int toGiv10 = summRequest % 100 / 10;   //на выдачу купюр номинал 10
-        int toGiv1 = summRequest %  10;         //на выдачу купюр номинал 1
+        int toGiv1Nominal0Nominal0Nominal = summRequest / 100;
+        int toGiv1Nominal0Nominal = summRequest % 100 / 10;
+        int toGiv1Nominal = summRequest %  10;
 
-        if (toGiv100 > billHundred) {
-            toGiv100 = billHundred;
-            toGiv10 = (summRequest - toGiv100 * 100) / 10;        
+        if (toGiv1Nominal0Nominal0Nominal > cash100dollar) {
+            toGiv1Nominal0Nominal0Nominal = cash100dollar;
+            toGiv1Nominal0Nominal = (summRequest - toGiv1Nominal0Nominal0Nominal * 100) / 10;        
         }
 
-        if (toGiv10 > billTens) {
-            toGiv10 = billTens;
-            toGiv1 = (summRequest - toGiv100 * 100 - toGiv10 * 10);        
+        if (toGiv1Nominal0Nominal > cash10dollar) {
+            toGiv1Nominal0Nominal = cash10dollar;
+            toGiv1Nominal = (summRequest - toGiv1Nominal0Nominal0Nominal * 100 - toGiv1Nominal0Nominal * 10);        
         }
 
         System.out.println("\nЗапрошенная сумма " + summRequest + "$");
         System.out.println("Выдача банкнот...");
-        System.out.println("Банкнота 100$: " + toGiv100 + "шт");
-        System.out.println("Банкнота 10$: " + toGiv10 + "шт");
-        System.out.println("Банкнота 1$: " + toGiv1 + "шт");
+        System.out.println("Банкнота 100$: " + toGiv1Nominal0Nominal0Nominal + "шт");
+        System.out.println("Банкнота 10$: " + toGiv1Nominal0Nominal + "шт");
+        System.out.println("Банкнота 1$: " + toGiv1Nominal + "шт");
     }
 }
