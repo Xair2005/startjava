@@ -71,18 +71,18 @@ public class CyclesTheme {
         System.out.println("\n\n 5. Проверка количества единиц на четность");
 
         int srcNumb = 3141591;
-        int countUnit = 0;
+        int countOnes = 0;
         System.out.print("\nЧисло " + srcNumb + " содержит ");
         while (srcNumb > 0) {
             if (srcNumb % 10 == 1) {
-                countUnit++;
+                countOnes++;
             }
             srcNumb /= 10;
         }
-        if (countUnit % 2 == 0) {
-            System.out.print(countUnit + "(четное) количество единиц");
+        if (countOnes % 2 == 0) {
+            System.out.print(countOnes + "(четное) количество единиц");
         } else {
-            System.out.print(countUnit + "(нечетное) количество единиц");
+            System.out.print(countOnes + "(нечетное) количество единиц");
         }
 
         System.out.println("\n\n 6. Отображение фигур в консоли");
@@ -106,7 +106,7 @@ public class CyclesTheme {
                 i++;
             }
             System.out.println("#");
-            j = 1;            
+            j = 1;
             k--;
             i++;
         }
@@ -147,72 +147,75 @@ public class CyclesTheme {
         }
 
         System.out.println("\n 8. Проверка, является ли число палиндромом");
-        srcNumb = 72527;
+        srcNumb = 123414321;
         int tmpNumbL = srcNumb;
         int tmpNumbR = srcNumb;
-        int countDig = 0;
-        int exponent = 1; 
-        int leftDig = 0;
-        int rightDig = 0;
+        int countDigits = 0; 
+        int leftDigits = 0;
+        int rightDigits = 0;
         boolean isPalindrom = true;
-        
         do {
-            countDig++;
+            countDigits++;
             tmpNumbR /= 10;
         } while (tmpNumbR > 0);
-        for (i = 1; i <= countDig / 2; i++) {
-            exponent = 1;
-            int expLev = 1;
-            tmpNumbR = srcNumb;
-            do {
-             exponent *= 10;
-             expLev++;
-         } while (expLev <= i);
-         tmpNumbR = tmpNumbR % exponent;
-         tmpNumbR = tmpNumbR / (exponent / 10);
-         rightDig = tmpNumbR;
-         tmpNumbL = srcNumb;
-         exponent = 1;
-         expLev = countDig - i + 1;
-         k = 1;
-         for (k = 1; k <= expLev; k++) {
-            exponent *= 10;
+        tmpNumbR = srcNumb;
+        i = 0;
+        while (i < countDigits / 2) {
+            i++;
+            rightDigits = tmpNumbR % 10;
+            tmpNumbR /= 10;
+            j = 0; 
+            tmpNumbL = srcNumb;
+            while (j <= countDigits - i) {
+                j++;
+                leftDigits = tmpNumbL % 10;
+                tmpNumbL /= 10;
+            }
+            if (leftDigits != rightDigits) {
+                isPalindrom = false;
+            }
         }
-        tmpNumbL = tmpNumbL % exponent;
-        tmpNumbL = tmpNumbL / (exponent / 10);
-        leftDig = tmpNumbL;
-        if (leftDig != rightDig) {
-            isPalindrom = false;
+        if (isPalindrom) {
+            System.out.println("\nчисло " + srcNumb + " является палиндромом");
+        } else {
+            System.out.println("\nчисло " + srcNumb + " является не палиндромом");
         }
-    }
-    if (isPalindrom == true) {
-        System.out.println("\nчисло " + srcNumb + " является палиндромом");
-    } else {
-       System.out.println("\nчисло " + srcNumb + " является не палиндромом");
-   }
 
         System.out.println("\n 9. Определение, является ли число счастливым");
         srcNumb = 314152;
-        int tmpNumb = srcNumb;
-        String leftText = "";
-        String rightText = "";
-        int sum1 = 0;
-        int sum2 = 0;
-        i = 1;
-        while (tmpNumb > 0) {
-            if (i <= 3) {
-                leftText = tmpNumb % 10 + leftText;
-                sum1 = sum1 + tmpNumb % 10;
-            } else {
-                rightText = tmpNumb % 10 + rightText;
-                sum2 = sum2 + tmpNumb % 10;
-            }
-            tmpNumb = tmpNumb / 10;
+        tmpNumbL = srcNumb;
+        tmpNumbR = srcNumb;
+        int sumR = 0;
+        int sumL = 0;
+        int exponent = 1;
+        
+        countDigits = 0;
+        do {
+            countDigits++;
+            tmpNumbR /= 10;
+        } while (tmpNumbR > 0);
+        tmpNumbR = srcNumb;
+        i = 0;
+        while (i < countDigits / 2) {
             i++;
+            rightDigits = tmpNumbR % 10;
+            tmpNumbR /= 10;
+            j = 0; 
+            tmpNumbL = srcNumb;
+            while (j <= countDigits - i) {
+                j++;
+                leftDigits = tmpNumbL % 10;
+                tmpNumbL /= 10;
+            }
+            sumR += rightDigits;
+            sumL += leftDigits;
         }
-        System.out.println("\nСумма цифр " + leftText + " = " + sum1);
-        System.out.println("Сумма цифр " + rightText + " = " + sum2);
-        if (sum1 == sum2) {
+        for (k =1; k <= countDigits / 2 ; k++) {
+            exponent *= 10;
+        }
+        System.out.println("\nСумма цифр " + srcNumb / exponent + " = " + sumL);
+        System.out.println("Сумма цифр " + srcNumb % exponent + " = " + sumR);
+        if (sumR == sumL) {
             System.out.println("Число " + srcNumb + " счастливое");
         } else {
             System.out.println("Число " + srcNumb + " не счастливое");
@@ -221,30 +224,30 @@ public class CyclesTheme {
         System.out.println("\n 10. Вывод таблицы умножения Пифагора");
         for (j = 1; j <= 9; j++) {
             if (j == 1) {
-             System.out.print("\n   |");
-         }
-         else {
-            System.out.printf("%4d", j);
-        }
-    }
-    for (j = 1; j <= 9; j++) {
-        if (j == 1) {
-            System.out.print("\n");
-        } else {
-            System.out.print("-----");
-        }
-    }
-    for (i = 2; i <= 9; i++) {
-        System.out.printf("\n%2d", i);
-        System.out.print(" |");
-        for (j = 2; j <= 9; j++) {
-            if (i == 1) {
+                System.out.print("\n   |");
+            } else {
                 System.out.printf("%4d", j);
-            } 
-            else {
-                System.out.printf("%4d", i*j);
             }
         }
+        for (j = 1; j <= 9; j++) {
+            if (j == 1) {
+                System.out.print("\n");
+            } else {
+                System.out.print("-----");
+            }
+        }
+        for (i = 2; i <= 9; i++) {
+            System.out.printf("\n%2d", i);
+            System.out.print(" |");
+            for (j = 2; j <= 9; j++) {
+                if (i == 1) {
+                    System.out.printf("%4d", j);
+                } else {
+                    System.out.printf("%4d", i * j);
+                }
+            }
+        }
+
+
     }
-}
 }
